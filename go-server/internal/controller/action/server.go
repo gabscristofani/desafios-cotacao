@@ -6,18 +6,19 @@ import (
 
 	"github.com/gabscristofani/go-server/internal/controller/response"
 	"github.com/gabscristofani/go-server/internal/model"
+
 	_ "github.com/mattn/go-sqlite3"
 )
 
 func Handle(w http.ResponseWriter, r *http.Request) {
 	var c model.Cambio
-	if err := c.NewTaxaCambio(); err != nil {
+	if err := c.NewTaxaCambio(r.Context()); err != nil {
 		log.Printf("Error getting exchange rate: %v", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	if err := c.SaveCotacao(); err != nil {
+	if err := c.SaveCotacao(r.Context()); err != nil {
 		log.Printf("Error saving exchange rate: %v", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
