@@ -24,7 +24,7 @@ type Cambio struct {
 	} `json:"USDBRL"`
 }
 
-func (c *Cambio) SalvarCotacao(ctx context.Context) error {
+func (c *Cambio) SaveCotacao(ctx context.Context) error {
 	ctx, cancel := context.WithTimeout(ctx, 10*time.Millisecond)
 	defer cancel()
 

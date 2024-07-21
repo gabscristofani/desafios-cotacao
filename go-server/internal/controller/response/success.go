@@ -10,7 +10,7 @@ type Sucess struct {
 	result     interface{}
 }
 
-func NewSucess(result interface{}, status int) Sucess {
+func NewSuccess(result interface{}, status int) Sucess {
 	return Sucess{
 		statusCode: status,
 		result:     result,
