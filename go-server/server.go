@@ -83,7 +83,7 @@ func gravaCotacao(db *sql.DB, item *ItemCotacao) error {
 }
 
 func dbConfig() (*sql.DB, error) {
-	db, err := sql.Open("sqlite", "./cotacao.db")
+	db, err := sql.Open("sqlite3", "./cotacao.db")
 	if err != nil {
 		return nil, err
 	}
